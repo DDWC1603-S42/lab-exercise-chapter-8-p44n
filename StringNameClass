@@ -1,0 +1,4 @@
+#include <iostream>
+#include <string>
+
+//buat class funtion yang call/print nama anda.
