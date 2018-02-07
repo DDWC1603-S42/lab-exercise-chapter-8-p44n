@@ -1,9 +1,9 @@
+// AHMAD FARHAN SULAIMAN BIN ZULRAIMI
+// A17DW1185
 #include <iostream>
 #include <string>
 
-//#include "LogH.h"
 using namespace std;
-
 class Log
 {
     public:
@@ -11,45 +11,49 @@ class Log
         int LogLevelError=1;
         int LogLevelInfo=2;
 
-    private:
-        int m_LogLevel=LogLevelInfo;
+    
+	private:
+        int x_LogLevel=LogLevelInfo;
+    
+	public:
 
-    public:
-
-        void SetLogLevel(int level)
-        {
-            m_LogLevel=level;
+      //function
+        void SetLogLevel(int level){
+            x_LogLevel=level;
         }
 
-       //niel string message="string";
-
+        //error
         int Error(const char* message)
         {
-        if(m_LogLevel>=LogLevelError)
-        cout<<"[ERROR]: "<<message<<endl;
+          if(x_LogLevel>=LogLevelError)
+          cout<<"[ERROR]: "<<message<<endl;
         }
-
-
-        int Warn(const char* message)
+        
+		//warn
+        int Warning(const char* message)
         {
-        if(m_LogLevel>=LogLevelWarning)
-        cout<<"[WARNING]: "<<message<<endl;
+          if(x_LogLevel>=LogLevelWarning)
+          cout<<"[WARNING]: "<<message<<endl;
         }
-
-
+        
+		//Info
         int Info(const char* message)
         {
-        if(m_LogLevel>=LogLevelInfo)
-        cout<<"[INFO]: "<<message<<endl;
+          if(x_LogLevel>=LogLevelInfo)
+          cout<<"[INFO]: "<<message<<endl;
         }
-
 };
 
-int main()
-{
 
+
+int main()
+
+{
     Log log;
     log.SetLogLevel(log.LogLevelWarning);
-    log.Warn("Hello! its a warning!");
-
+    log.Warning("Hello! its a warning!!!");
+    log.SetLogLevel(log.LogLevelError);
+    log.Error("Your Programme has an error! Please fix it !");
+    log.SetLogLevel(log.LogLevelInfo);
+    log.Info("Fix it!!!");
 }
